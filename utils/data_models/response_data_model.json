@@ -1,0 +1,42 @@
+[
+  {
+    "UUID": "15c390cb2ea2712a545288d1d0738085ebf9c260ebfb893a80254040523c7bd9",
+    "submitSuccess": true,
+    "attemptAt": "2022-03-24T17:44:23.841Z",
+    "completedAt": "2022-03-24T17:46:23.841Z",
+    "attempts": 2,
+    "logs": "{LOGS}",
+    "captcha": [
+      {
+        "success": false,
+        "img": "<<base64 encoded image>>"
+      },
+      {
+        "success": true,
+        "img": "<<base64 encoded image>>"
+      }
+    ],
+    "responseMessage": "some string",
+    "errors": []
+  },
+  {
+    "UUID": "15c390cb2ea2712a545288d1d0738085ebf9c260ebfb893a80254040523c7bd9",
+    "submitSuccess": true,
+    "attemptAt": "2022-03-24T17:44:23.841Z",
+    "completedAt": "2022-03-24T17:46:23.841Z",
+    "attempts": 2,
+    "logs": "{LOGS}",
+    "captcha": [
+      {
+        "success": false,
+        "img": "<<base64 encoded image>>"
+      },
+      {
+        "success": true,
+        "img": "<<base64 encoded image>>"
+      }
+    ],
+    "responseMessage": "some string",
+    "errors": []
+  }
+]
