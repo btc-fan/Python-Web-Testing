@@ -17,4 +17,4 @@ class PersonModel:
     logs: str
     state: str
     captcha: List[CaptchaSubmissionStatus]
-    error: str
+    error: List[str]

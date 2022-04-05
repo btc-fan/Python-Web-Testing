@@ -1,4 +1,6 @@
+import argparse
 import json
+import unittest
 
 import pytest
 # from captcha_model_training.CAPTCHA_object_detection import captcha_detection
@@ -9,20 +11,24 @@ from utils.data_models.PersonModelClass import *
 from utils.download_new_captchas_for_training import *
 from utils.variables import FAILED_CAPTCHA_DOWNLOAD_FOLDER, UTILS_FOLDER, DATA_MODEL_FOLDER
 from pages.OptInOptOutForm import BasicInfoHelper
-from utils.confest import browser
+from conftest import *
 import sys
 import docker
 
-def test_main(browser):
+
+
+def test_main(browser, person_data):
+    # json_file = open(DATA_MODEL_FOLDER + "person_data_model.json")
+    # argument path from --user_json_path=/example/person_data_model.json
 
     # Docker Img for captcha bypass
     image = "captcha_bypass"
     client = docker.from_env()
-
     CAPTCHA_RETRIES: int = 0
-    json_file = open(DATA_MODEL_FOLDER + "person_data_model.json")
-    person_data = json.load(json_file)
-    person_model = PersonModel.Schema().loads(json.dumps(person_data))
+
+    person_model = PersonModel.Schema().loads(person_data)
+
+
     on_basic_info = BasicInfoHelper(browser)
     on_successful_submission = SuccessfulSubmissionHelper(browser)
     on_session_ended = SessionEndedHelper(browser)
@@ -130,5 +136,14 @@ def test_main(browser):
 
 
 if __name__ == '__main__':
-    # unittest.main()
-    pytest.main(["test_main.py", "-s"])
+    # pytest.main(['-q', '-s', '--user_json_path', "args_string", 'test_main.py'])
+    # sys.argv = ["user_json_path", "abc"]
+    # pytest.main("--user_json_path=QQWE")
+    # pytest.main(["test_main.py", "--person_data=sdfsdF"])
+    unittest.main()
+    json_file = open(DATA_MODEL_FOLDER + "person_data_array.json")
+    person_data_array = json.load(json_file)
+    for person_data in person_data_array:
+        pytest.main(["test_main.py", f"--person_data={json.dumps(person_data)}"])
+    # run_person(browser, person_data)
+    # pytest.main(["test_main.py"])

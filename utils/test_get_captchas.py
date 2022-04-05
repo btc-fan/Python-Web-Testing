@@ -1,6 +1,6 @@
 import pytest
 from utils.download_new_captchas_for_training import *
-from utils.confest import browser
+from utils.conftest import browser
 
 
 def test_get_captchas(browser):
