@@ -1,0 +1,16 @@
+{
+    "UUID": "<%- || null %>",
+    "submitSuccess": "<%- || false %>",
+    "attemptAt": "<%- || null %>",
+    "completedAt": "<%- || null %>",
+    "attempts": "<%- || 0 %>",
+    "logs": "<%- || null %>",
+    "captcha": [
+        {
+            "success": "<%- || true %>",
+            "img": "<%- base64 encoded image || null %>"
+        }
+    ],
+    "responseMessage": "<%- string || null %>",
+    "errors": []
+}
