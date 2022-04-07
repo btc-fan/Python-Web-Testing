@@ -1,21 +1,26 @@
 import json
 import sys
+
 import requests
-import credentials as creds
-import variables
+
+import utils.credentials as creds
+from utils.logger import LOGGER
+from utils.variables import *
 
 authUser = creds.basicAuthUser
 authPass = creds.basicAuthPassword
 
 # verify the user action is authorized, should return 200 status
 def check_connection():
-    r = requests.get(variables.API_ROOT_URL, auth=(authUser, authPass))
-    print(r.status_code)
-    print(r.text)
+    LOGGER.info("Checking API connection for endpoint\n" + API_ROOT_URL)
+    r = requests.get(API_ROOT_URL, auth=(authUser, authPass))
+    LOGGER.info(r.status_code)
+    LOGGER.info(r.text)
 
 # returns a json formatted payload for POST operation
 def prepare_payload():
-    response_file = variables.GENERATED_JSONS
+    LOGGER.info("Preparing Response Json from path:\n" + RESPONSE_JSON)
+    response_file = RESPONSE_JSON
     with open(response_file, 'r') as responseFile:
         data = json.load(responseFile)
         for obj in data:
@@ -23,14 +28,16 @@ def prepare_payload():
 
 # POST request 
 def send_request(data):
-    r = requests.post(variables.API_RESULTS_URL, auth=(
+    LOGGER.info("Sending Reqesuest with data:\n" + str(data))
+    r = requests.post(API_RESULTS_URL, auth=(
         authUser, authPass), json=data)
-    print(r.status_code)
-    print(r.text)
+    LOGGER.info(r.status_code)
+    LOGGER.info(r.text)
 
-def main():
+def main_api():
     check_connection()
     prepare_payload()
+    LOGGER.info("Response Json file SUCCESSFULLY send to API")
 
 if __name__ == '__main__':
-    sys.exit(main())
+    sys.exit(main_api())
