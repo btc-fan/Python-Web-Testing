@@ -1,7 +1,7 @@
 import argparse
 import json
 import unittest
-
+import os
 import pytest
 # from captcha_model_training.CAPTCHA_object_detection import captcha_detection
 from pages.SessionEndedPage import SessionEndedHelper
@@ -17,10 +17,10 @@ import docker
 
 
 
-def test_main(browser, person_data):
+def test_main(browser):
     # json_file = open(DATA_MODEL_FOLDER + "person_data_model.json")
     # argument path from --user_json_path=/example/person_data_model.json
-
+    person_data = os.environ.get('REQUEST')
     # Docker Img for captcha bypass
     image = "captcha_bypass"
     client = docker.from_env()
