@@ -5,15 +5,15 @@ from utils.logger import LOGGER
 
 class SuccessfulSubmissionPage:
     # Text fields
-    PAGE_TITLE_TEXT = (By.CSS_SELECTOR, "h2.pageTitle")
-    GREETING_SUB_HEADING_TITLE_TEXT = (By.CSS_SELECTOR, ".pageMarginTop h3")
-    SUB_HEADING_DESCRIPTION_TEXT = (By.CSS_SELECTOR, ".pageMarginTop p:nth-child(3)")
-    ENDING_SUB_HEADING_TITLE_TEXT = (By.CSS_SELECTOR, ".endSession h3")
-    ENDING_HEADING_DESCRIPTION_TEXT = (By.CSS_SELECTOR, ".endSession p")
-    INFORMATION_SUMMARY_TITLE_TEXT = (By.CSS_SELECTOR, "div.summarySheet h3.subHeading:nth-child(2)")
-    NOTE_INFORMATION_SUMMARY_DESCRIPTION_TEXT = (By.CSS_SELECTOR, ".div.summarySheet p")
-    FIELD_NAME_SPAN_TEXT = (By.CSS_SELECTOR, "ul.infoWrap div.row span.label")
-    FIELD_NAME_VALUE_TEXT = (By.CSS_SELECTOR, "ul.infoWrap div.row span.userData")
+    PAGE_TITLE_TEXT = (By.CSS_SELECTOR, ".confirmation h2.pageTitle")
+    GREETING_SUB_HEADING_TITLE_TEXT = (By.CSS_SELECTOR, ".confirmation .pageMarginTop h3")
+    SUB_HEADING_DESCRIPTION_TEXT = (By.CSS_SELECTOR, ".confirmation .pageMarginTop p:nth-child(3)")
+    ENDING_SUB_HEADING_TITLE_TEXT = (By.CSS_SELECTOR, ".confirmation endSession h3")
+    ENDING_HEADING_DESCRIPTION_TEXT = (By.CSS_SELECTOR, ".confirmation .endSession p")
+    INFORMATION_SUMMARY_TITLE_TEXT = (By.CSS_SELECTOR, ".confirmation div.summarySheet h3.subHeading:nth-child(2)")
+    NOTE_INFORMATION_SUMMARY_DESCRIPTION_TEXT = (By.CSS_SELECTOR, ".confirmation .div.summarySheet p")
+    FIELD_NAME_SPAN_TEXT = (By.CSS_SELECTOR, ".confirmation ul.infoWrap div.row span.label")
+    FIELD_NAME_VALUE_TEXT = (By.CSS_SELECTOR, ".confirmation ul.infoWrap div.row span.userData")
 
     # //ul[@class='infoWrap']//div[@class='row']//span[@class='label']
     FIELD_VALUE_TEXT = (By.XPATH, "//ul[@class='infoWrap']//div[@class='row']//span[text()='%s']//..//span[@class='userData']")
@@ -32,6 +32,7 @@ class SuccessfulSubmissionHelper(BasePage):
             self.find_element(SuccessfulSubmissionPage.SUB_HEADING_DESCRIPTION_TEXT, time=2)
             self.find_element(SuccessfulSubmissionPage.ENDING_SUB_HEADING_TITLE_TEXT, time=2)
             self.find_element(SuccessfulSubmissionPage.INFORMATION_SUMMARY_TITLE_TEXT, time=2)
+            self.find_element(SuccessfulSubmissionPage.ENDING_HEADING_DESCRIPTION_TEXT, time=2)
             return bool(True)
         except:
             return bool(False)

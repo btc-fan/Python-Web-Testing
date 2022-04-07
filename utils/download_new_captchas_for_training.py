@@ -1,13 +1,11 @@
 import os
 import datetime
 import fnmatch
-import json
 import jsonlines
 
-from utils.data_models import Base64ModelClass
-from utils.data_models.Base64ModelClass import Failed_Captcha
+from data_models.Base64ModelClass import Failed_Captcha
 from utils.logger import LOGGER
-from utils.variables import CAPTCHA_DOWNLOAD_FOLDER, JSON_DOWNLOAD_BASE64, FAILED_CAPTCHA_DOWNLOAD_FOLDER
+from utils.variables import CAPTCHA_DOWNLOAD_FOLDER, JSON_DOWNLOAD_BASE64
 from pages.OptInOptOutForm import BasicInfoHelper
 from pages.DashboardPage import DashboardHelper
 from pages.SelectionPage import SelectionHelper

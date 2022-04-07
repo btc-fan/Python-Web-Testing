@@ -4,9 +4,9 @@ from utils.logger import LOGGER
 
 
 class SessionEndedPage:
-    PAGE_TITLE = (By.CSS_SELECTOR, "h2.pageTitle")
-    SUB_HEADING = (By.CSS_SELECTOR, "h3.subHeading")
-    PAGE_DESCRIPTION = (By.CSS_SELECTOR, "div.pageMarginTop p")
+    PAGE_TITLE = (By.CSS_SELECTOR, ".sessionEnded h2.pageTitle")
+    SUB_HEADING = (By.CSS_SELECTOR, ".sessionEnded h3.subHeading")
+    PAGE_DESCRIPTION = (By.CSS_SELECTOR, ".sessionEnded div.pageMarginTop p")
 
 
 class SessionEndedHelper(BasePage):
