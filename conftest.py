@@ -9,6 +9,7 @@ from selenium.webdriver.chrome.options import Options
 from webdriver_manager.chrome import ChromeDriverManager
 
 from pages.BasePage import LOGGER
+from utils.send_opt_request import main_api
 from utils.variables import RESPONSE_JSON
 
 
@@ -54,6 +55,8 @@ def browser():
         with open(RESPONSE_JSON, "a+") as f:
             json.dump(response_data_json, f, indent=4, separators=(',', ': '))
             f.close()
+    main_api()
+
 
 def pytest_configure():
     pytest.response_data_array = []
