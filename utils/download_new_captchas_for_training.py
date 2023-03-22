@@ -3,7 +3,6 @@ import datetime
 import fnmatch
 import jsonlines
 
-from data_models.Base64ModelClass import Failed_Captcha
 from utils.logger import LOGGER
 from utils.paths import CAPTCHA_DOWNLOAD_FOLDER, JSON_DOWNLOAD_BASE64
 from pages.OptInOptOutForm import BasicInfoHelper
@@ -52,23 +51,3 @@ def save_current_captcha_png(browser, captcha_download_folder=CAPTCHA_DOWNLOAD_F
     LOGGER.info("Captcha Successfully Saved to path:\n" +
                 captcha_download_folder + fileName)
     return captcha_download_folder + fileName
-
-
-def save_current_base64_captcha(browser, captcha_json_file=JSON_DOWNLOAD_BASE64):
-    # base64_object = Captcha
-    on_basic_info = BasicInfoHelper(browser)
-
-    # In case empty, save to default download folder
-    if not captcha_json_file:
-        captcha_json_file = JSON_DOWNLOAD_BASE64
-    LOGGER.info("Trying to save Captcha Base64 to Json path:\n" + captcha_json_file)
-
-    captcha_base_64_value = on_basic_info.get_current_captcha_base64_string()
-    base64_object = Failed_Captcha(datetime.datetime.now().strftime("%Y%m%d-%H%M%S"), captcha_base_64_value)
-
-    with open(captcha_json_file, 'wb') as f:
-        writer = jsonlines.Writer(f)
-        writer.write(base64_object.__dict__)
-        writer.close()
-
-    LOGGER.info("Captcha Successfully Saved to path:\n" + captcha_json_file)

@@ -12,4 +12,4 @@ WORKDIR /app/captcha_model_training
 RUN mkdir decoded_captchas
 RUN pip3 install -r requirements.txt
 ENV PYTHONPATH "${PYTHONPATH}:/app/models/research:/app/models/research/slim"
-ENTRYPOINT ["python3", "main_.py"]
+ENTRYPOINT ["python3", "runner.py"]
