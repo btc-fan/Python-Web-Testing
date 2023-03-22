@@ -5,7 +5,7 @@ import jsonlines
 
 from data_models.Base64ModelClass import Failed_Captcha
 from utils.logger import LOGGER
-from utils.variables import CAPTCHA_DOWNLOAD_FOLDER, JSON_DOWNLOAD_BASE64
+from utils.paths import CAPTCHA_DOWNLOAD_FOLDER, JSON_DOWNLOAD_BASE64
 from pages.OptInOptOutForm import BasicInfoHelper
 from pages.DashboardPage import DashboardHelper
 from pages.SelectionPage import SelectionHelper

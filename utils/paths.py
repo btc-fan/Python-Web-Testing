@@ -9,6 +9,8 @@ RESPONSE_JSON = ROOT_DIR + "/generated_jsons/response.json"
 UTILS_FOLDER = ROOT_DIR + "/utils/"
 DATA_MODEL_FOLDER = ROOT_DIR + "/data_models/"
 JSON_DOWNLOAD_BASE64 = GENERATED_JSON_FOLDER + "failed_captchas_base64.json"
+PERSON_DATA_ARRAY_JSON = DATA_MODEL_FOLDER + "person_data_array.json"
+
 
 # url variables
 API_ROOT_URL = "https://lrdcnxcfc3.execute-api.us-west-2.amazonaws.com"
